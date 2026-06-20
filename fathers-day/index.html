@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DadGPT</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:system-ui,sans-serif;
+}
+
+body{
+    background:linear-gradient(180deg,#0f172a,#1e3a8a);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.phone{
+    width:100%;
+    max-width:420px;
+    background:white;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.header{
+    background:#2563eb;
+    color:white;
+    padding:24px;
+    text-align:center;
+}
+
+.header h1{
+    font-size:2rem;
+}
+
+.header p{
+    opacity:.9;
+    margin-top:6px;
+}
+
+.content{
+    padding:20px;
+}
+
+button{
+    width:100%;
+    border:none;
+    background:#eff6ff;
+    color:#1e3a8a;
+    padding:16px;
+    border-radius:14px;
+    margin-bottom:12px;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    background:#dbeafe;
+}
+
+.answer{
+    margin-top:20px;
+    background:#f8fafc;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    border-radius:12px;
+    min-height:80px;
+    display:flex;
+    align-items:center;
+    color:#334155;
+    font-size:1.05rem;
+    line-height:1.5;
+}
+
+.footer{
+    text-align:center;
+    color:#64748b;
+    font-size:.9rem;
+    margin-top:20px;
+}
+
+@media(max-width:480px){
+    .header h1{
+        font-size:1.7rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+    <div class="header">
+        <h1>DadGPT</h1>
+        <p>Powered by the Ultimate WIIISSSDOOOMMMM</p>
+    </div>
+
+    <div class="content">
+
+        <button onclick="reply('tired')">
+            I'm TIIIIRRREDDDD
+        </button>
+
+        <button onclick="reply('badminton')">
+            I lost a badminton match 💔
+        </button>
+
+        <button onclick="reply('posture')">
+            My shoulder hurts like hell
+        </button>
+
+        <button onclick="reply('phone')">
+            5 more minutes on my phone? pls..
+        </button>
+
+        <button onclick="reply('hungry')">
+            I'm HUNGRY
+        </button>
+
+                <button onclick="reply('life')">
+            Abouttt Life!!
+        </button>
+
+        <button onclick="reply('emergency')">
+            Emergency Dad Advice!!
+        </button>
+
+        <button onclick="reply('creator')">
+            OPEN ME :- Who created DadGPT?!?!
+        </button>
+
+        <div class="answer" id="answer">
+            Ask DadGPT a question.
+        </div>
+
+        <div class="footer">
+            <br>
+            Version 1.0<br>
+            Created by Ishaanvi heheehe
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function reply(type){
+
+    const answers = {
+
+        tired:
+`You're TIRED?!! 😭
+
+You sat down for a little while and now you're tired? Go drink some water, walk around a bit, do a TEN rounds of sun salutation, and then come back and tell me you're tired. Half the time you're not tired, you just haven't moved for an hour.`,
+
+        badminton:
+`See, this is exactly what I'm talking about 😭 The drop was LITERALLY 1 CM AWAY FROM YOU. You saw it coming, I saw it coming, probably everyone watching saw it coming. Why didn't you move faster!?
+
+And your serve. How many times have we talked about this? A little more control, a little more power, and try to place it near the edge. Stop making life easy for your opponent. 🥲`,
+
+        phone:
+`Five more minutes???
+
+Interesting, because twenty minutes ago you also said five more minutes. At this point your five minutes lasts longer than some of those Netflix movies.
+
+Put the phone down, go outside, stretch a little, do something productive, and then come back.`,
+
+        posture:
+`ISHAANVI. Why are you sitting like that? 
+
+Every time I walk past you, your spine seems to invent a completely new shape. 
+
+Sit properly, shoulders back, neck straight. THERE. See?? much better.`,
+
+        hungry:
+`You're hungry? Then go make a fricking banana shake!! 
+
+I genuinely don't understand why you keep asking me this question when you already know exactly what my answer is going to be. 
+
+Have the banana shake, eat some fruit, and then tell me if you're still hungry.`,
+
+        life:
+`You want the solution to life? Honestly, it's mostly the boring things nobody wants to hear 😭 
+
+Drink enough water, sleep on time, move your body, fix your posture, and be consistent. `,
+
+        creator:
+`Happy Father's Day Dad
+
+I wanted to get you a gift, but then I remembered I'm a programmer, so naturally I decided to spend my time making a fake AI version of you instead 😭
+
+Thank you for all the badminton coaching, the yoga advice, the life lessons, the banana shake recommendations, and the approximately 8,000 reminders to fix my posture.
+
+This app is basically years of your advice converted into JavaScript.
+
+~ Ishaanvi`
+,
+
+        emergency: [
+            "Drink some water first and then we'll talk 😭",
+            "Fix your posture. Yes, right now.",
+            "Have you eaten any fruit today?",
+            "Go outside for ten minutes and touch some grass",
+            "Make a BANANA SHAKE",
+            "Stop scrolling and do something useful for a bit.",
+            "Go do a few rounds of Sun Salutation.",
+        ]
+    };
+
+    const answerBox = document.getElementById("answer");
+
+    if(type === "emergency"){
+        const random =
+            answers.emergency[
+                Math.floor(Math.random() * answers.emergency.length)
+            ];
+
+        answerBox.innerText = random;
+    } else {
+        answerBox.innerText = answers[type];
+    }
+}
+</script>
+
+</body>
+</html>
